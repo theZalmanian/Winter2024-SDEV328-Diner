@@ -1,0 +1,17 @@
+/* bootstrap overrides */
+:root {
+    --primary-color: #30c4d7;
+    --secondary-color: #082125;
+    --accent-color: #A5A889;
+
+    --bs-body-color: var(--secondary-color);
+}
+
+.btn.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+}
+
+body {
+    background-color: var(--primary-color);
+}
