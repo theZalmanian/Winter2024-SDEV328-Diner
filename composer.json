@@ -1,0 +1,13 @@
+{
+  "name": "Winter2024-SDEV328-Hello",
+  "description": "Test project using MVC with PHP through Fat-Free",
+  "authors": [
+    {
+      "name": "Zalman I.",
+      "email": "syntaxwarden@protonmail.com"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
