@@ -30,6 +30,15 @@
         echo $view->render("views/breakfast-menu.html");
     });
 
+    // define a breakfast route for the project
+    $f3->route("GET /order-1", function() {
+        // create a new view object
+        $view = new Template();
+
+        // display file at following path
+        echo $view->render("views/order-form-1.html");
+    });
+
     // run Fat-Free Framework
     $f3->run()
 ?>
