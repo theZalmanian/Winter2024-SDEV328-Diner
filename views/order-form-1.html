@@ -33,37 +33,32 @@
             <label class="col-sm-4 control-label">Select a meal</label>
             <div class="col-sm-4">
                 <p>You chose </p>
-                <label><input type="radio"
-                              name="meal"
-                              id="breakfast"
-                              value="breakfast"
-                > Breakfast
-                    </input>
-                </label><br>
-                <label><input type="radio"
-                              name="meal"
-                              id="brunch"
-                              value="brunch"
-                > Brunch
-                    </input>
-                </label><br>
-                <label><input type="radio"
-                              name="meal"
-                              id="lunch"
-                              value="lunch"
-                > Lunch
-                    </input>
-                </label><br>
-                <label><input type="radio"
-                              name="meal"
-                              id="dinner"
-                              value="dinner"
-                > Dinner
-                    </input>
-                </label><br>
+                <label>
+                    <input type="radio" name="meal" id="breakfast" value="breakfast">
+                    Breakfast
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="meal" id="brunch" value="brunch">
+                    Brunch
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="meal" id="lunch" value="lunch">
+                    Lunch
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="meal" id="dinner" value="dinner">
+                    Dinner
+                </label>
+                <br>
+                <br>
 
                 <!-- Display an error if there is one -->
-
+                <check if="{{ isset(@errors['food']) }}">
+                    {{ @errors['food'] }}
+                </check>
             </div>
         </div>
 

@@ -48,15 +48,18 @@
 
             // otherwise set error to be displayed
             else {
-                $f3->set("errors['food'", "The given food item was invalid");
+                $f3->set("errors['food']", "The given food item was invalid");
             }
 
             // store given meal data within SESSION
             $meal = $_POST["meal"];
             $f3->set("SESSION.meal", $meal);
 
-            // redirect to the order-2 path
-            $f3->reroute("order-2");
+            // If there are no errors
+            if (empty($f3->get('errors'))) {
+                // redirect to the order-2 path
+                $f3->reroute("order-2");
+            }
         }
 
         // create a new view object
