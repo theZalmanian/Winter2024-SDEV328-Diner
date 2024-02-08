@@ -61,15 +61,15 @@
         // jf the order form has been posted
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // validate the given data
-            if (isset($_POST['conds'])){
-                $condiments = implode(", ", $_POST['conds']);
+            if (isset($_POST['condiments'])){
+                $condiments = implode(", ", $_POST['condiments']);
             }
             else {
                 $condiments = "None selected";
             }
 
             // store given data within SESSION
-            $f3->set('SESSION.conds', $condiments);
+            $f3->set('SESSION.condiments', $condiments);
 
             // redirect to the summary page
             $f3->reroute('summary');

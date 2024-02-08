@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<include href="views/header.html"/>
+<body>
+<main class="container mt-3">
+    <div class="row">
+        <div class="col-md-4 col-lg-4">
+        </div>
+        <div class="col-12 col-md-4 col-lg-4">
+            <h1>Dino Diner</h1>
+            <hr>
+            <p>"Thank you for your order!"</p>
+            <p>You ordered {{ @SESSION.food }} for {{ @SESSION.meal }}</p>
+            <p>Condiments:  {{ @SESSION.condiments }}</p>
+        </div>
+        <div class="col-md-4 col-lg-4">
+        </div>
+    </div>
+</main>
+</body>
+</html>
