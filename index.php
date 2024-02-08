@@ -12,6 +12,9 @@
     // access data model
     require_once ("model/data-layer.php");
 
+    // access validation methods
+    require_once ("model/validate.php");
+
     // instantiate Fat-Free Framework (f3) class
     $f3 = Base::instance();
 
@@ -37,12 +40,19 @@
     $f3->route("GET|POST /order-1", function($f3) {
         // jf the order form has been posted
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // validate the given data
-            $food = $_POST["food"];
-            $meal = $_POST["meal"];
+            // if the given food is valid
+            if(foodIsValid($_POST["food"])) {
+                // store it within session
+                $f3->set("SESSION.food", $_POST["food"]);
+            }
 
-            // store given data within SESSION
-            $f3->set("SESSION.food", $food);
+            // otherwise set error to be displayed
+            else {
+                $f3->set("errors['food'", "The given food item was invalid");
+            }
+
+            // store given meal data within SESSION
+            $meal = $_POST["meal"];
             $f3->set("SESSION.meal", $meal);
 
             // redirect to the order-2 path
