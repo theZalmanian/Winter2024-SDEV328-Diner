@@ -15,15 +15,19 @@
     <h1>The Diner:  Order Form Part 1</h1>
 
     <form action="#" method="post" class="form-horizontal">
-
         <!-- get food -->
         <div class="form-group">
-            <label for="food" class="col-sm-4 control-label">What food would you like to order?</label>
+            <label for="food" class="col-sm-4 control-label">
+                What food would you like to order?
+            </label>
 
             <div class="col-sm-4">
                 <input class="form-control" type="text" name="food" id="food" value="">
-
                 <!-- Display an error if there is one -->
+                <check if="{{ isset(@errors['food']) }}">
+                    <span class="text-danger">{{ @errors['food'] }}</span>
+                    <br>
+                </check>
             </div>
         </div>
         <br>
@@ -56,8 +60,8 @@
                 <br>
 
                 <!-- Display an error if there is one -->
-                <check if="{{ isset(@errors['food']) }}">
-                    {{ @errors['food'] }}
+                <check if="{{ isset(@errors['meal']) }}">
+                    <span class="text-danger">{{ @errors['meal'] }}</span>
                 </check>
             </div>
         </div>

@@ -51,9 +51,16 @@
                 $f3->set("errors['food']", "The given food item was invalid");
             }
 
-            // store given meal data within SESSION
-            $meal = $_POST["meal"];
-            $f3->set("SESSION.meal", $meal);
+            // if the given meal is valid
+            if(mealIsValid($_POST["meal"])) {
+                // store given meal data within SESSION
+                $f3->set("SESSION.meal", $_POST["meal"]);
+            }
+
+            // otherwise set error to be displayed
+            else {
+                $f3->set("errors['meal']", "The given meal item was invalid");
+            }
 
             // If there are no errors
             if (empty($f3->get('errors'))) {

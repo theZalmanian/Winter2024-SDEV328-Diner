@@ -8,4 +8,17 @@
         // otherwise, food is valid
         return true;
     }
+
+    function mealIsValid($meal) {
+        // setup list of valid meals
+        $validMeals = array("breakfast", "lunch", "dinner");
+
+        // if the given meal is stored as valid meal
+        if(in_array($meal, $validMeals)) {
+            return true;
+        }
+
+        // otherwise, meal is not valid
+        return false;
+    }
 ?>
