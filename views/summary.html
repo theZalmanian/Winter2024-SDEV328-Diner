@@ -9,10 +9,18 @@
         <div class="col-12 col-md-4 col-lg-4">
             <h1>Dino Diner</h1>
             <hr>
-            <p>"Thank you for your order!"</p>
-            <p>You ordered {{ @SESSION.food }} for {{ @SESSION.meal }}</p>
-            <p>Condiments:  {{ @SESSION.condiments }}</p>
+
+            <p>
+                "Thank you for your order!"
+            </p>
+            <p>
+                You ordered {{ @SESSION.order->getFood() }} for {{ @SESSION.order->getMeal() }}
+            </p>
+            <p>
+                Condiments: {{ @SESSION.order->getCondiments() }}
+            </p>
             <br>
+
             <a class="btn btn-success" href="{{ @BASE }}">Home Page</a>
             <a class="btn btn-success" href="order-1">Place another order</a>
         </div>

@@ -10,10 +10,10 @@
     require_once("vendor/autoload.php");
 
     // access data model
-    require_once ("model/data-layer.php");
+    require_once("model/data-layer.php");
 
     // access validation methods
-    require_once ("model/validate.php");
+    require_once("model/validate.php");
 
     // instantiate Fat-Free Framework (f3) class
     $f3 = Base::instance();
@@ -40,10 +40,13 @@
     $f3->route("GET|POST /order-1", function($f3) {
         // jf the order form has been posted
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // construct new Order to store given data
+            $currOrder = new Order();
+
             // if the given food is valid
             if(foodIsValid($_POST["food"])) {
-                // store it within session
-                $f3->set("SESSION.food", $_POST["food"]);
+                // add it to the order
+                $currOrder->setFood($_POST["food"]);
             }
 
             // otherwise set error to be displayed
@@ -53,8 +56,8 @@
 
             // if the given meal is valid
             if(mealIsValid($_POST["meal"])) {
-                // store given meal data within SESSION
-                $f3->set("SESSION.meal", $_POST["meal"]);
+                // add it to the order
+                $currOrder->setMeal($_POST["meal"]);
             }
 
             // otherwise set error to be displayed
@@ -64,6 +67,9 @@
 
             // If there are no errors
             if (empty($f3->get('errors'))) {
+                // add current order into session
+                $f3->set('SESSION.order', $currOrder);
+
                 // redirect to the order-2 path
                 $f3->reroute("order-2");
             }
@@ -88,8 +94,8 @@
                 $condiments = "None selected";
             }
 
-            // store given data within SESSION
-            $f3->set('SESSION.condiments', $condiments);
+            // add given data to order
+            $f3->get('SESSION.order')->setCondiments($condiments);
 
             // redirect to the summary page
             $f3->reroute('summary');
