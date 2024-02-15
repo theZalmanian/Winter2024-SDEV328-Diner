@@ -44,7 +44,7 @@
             $currOrder = new Order();
 
             // if the given food is valid
-            if(foodIsValid($_POST["food"])) {
+            if(Validate::foodIsValid($_POST["food"])) {
                 // add it to the order
                 $currOrder->setFood($_POST["food"]);
             }
@@ -55,7 +55,7 @@
             }
 
             // if the given meal is valid
-            if(mealIsValid($_POST["meal"])) {
+            if(Validate::mealIsValid($_POST["meal"])) {
                 // add it to the order
                 $currOrder->setMeal($_POST["meal"]);
             }
@@ -102,7 +102,7 @@
         }
 
         // Add data to the F3 "hive"
-        $f3->set('condiments', getCondiments());
+        $f3->set('condiments', DataLayer::getCondiments());
 
         // Display a view page
         $view = new Template();
