@@ -1,5 +1,5 @@
 {
-  "name": "Winter2024-SDEV328-Hello",
+  "name": "Winter2024-SDEV328-Diner",
   "description": "Test project using MVC with PHP through Fat-Free",
   "authors": [
     {
@@ -13,7 +13,8 @@
   "autoload": {
     "classmap": [
       "classes/",
-      "model/"
+      "model/",
+      "controllers/"
     ]
   }
 }
